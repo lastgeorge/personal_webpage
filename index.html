@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" href="/favicon.ico" />
@@ -9,19 +9,36 @@
     <!-- Initial theme setup script -->
     <script>
       (function() {
-        // Check if a theme is stored in localStorage
-        const savedTheme = localStorage.getItem('theme');
-        
-        // If explicitly set to light, remove dark class
-        if (savedTheme === 'light') {
-          document.documentElement.classList.remove('dark');
-        } 
-        // If no preference stored, check system preference
-        else if (!savedTheme) {
-          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          if (!prefersDark) {
+        try {
+          // Check if a theme is stored in localStorage
+          const savedTheme = localStorage.getItem('theme');
+          console.log('Initial script - saved theme:', savedTheme);
+          
+          if (savedTheme === 'dark') {
+            // If explicitly set to dark, add dark class
+            document.documentElement.classList.add('dark');
+            console.log('Initial script - adding dark class from saved preference');
+          } 
+          else if (savedTheme === 'light') {
+            // If explicitly set to light, ensure no dark class
             document.documentElement.classList.remove('dark');
+            console.log('Initial script - removing dark class from saved preference');
           }
+          else {
+            // If no preference stored, check system preference
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            console.log('Initial script - system prefers dark:', prefersDark);
+            
+            if (prefersDark) {
+              document.documentElement.classList.add('dark');
+              console.log('Initial script - adding dark class from system preference');
+            } else {
+              document.documentElement.classList.remove('dark');
+              console.log('Initial script - removing dark class from system preference');
+            }
+          }
+        } catch (error) {
+          console.error('Error in initial theme script:', error);
         }
       })();
     </script>

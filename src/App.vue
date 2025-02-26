@@ -32,7 +32,7 @@
           <li class="pt-4 mt-4 border-t border-blue-700 dark:border-gray-700">
             <div class="flex items-center space-x-4 py-3 px-3">
               <i class="mdi mdi-theme-light-dark text-2xl"></i>
-              <span class="text-lg">Dark Mode</span>
+              <span class="text-lg">{{ currentTheme === 'dark' ? 'Dark Mode (On)' : 'Dark Mode (Off)' }}</span>
               <div class="ml-auto">
                 <theme-toggle />
               </div>
@@ -96,8 +96,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
+import { useThemeStore } from './stores/theme'
 import PageTransition from './components/PageTransition.vue'
 import LoadingBar from './components/LoadingBar.vue'
 import ThemeToggle from './components/ThemeToggle.vue'
@@ -112,6 +113,8 @@ export default defineComponent({
   setup() {
     const router = useRouter();
     const sidebarOpen = ref(false);
+    const themeStore = useThemeStore();
+    const currentTheme = computed(() => themeStore.theme);
     
     // Fix for mobile viewport height
     if (typeof window !== 'undefined') {
@@ -147,7 +150,8 @@ export default defineComponent({
     return {
       navItems,
       sidebarOpen,
-      toggleSidebar
+      toggleSidebar,
+      currentTheme
     }
   }
 })
