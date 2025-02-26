@@ -1,5 +1,9 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+// Import components directly instead of using lazy loading
+import ResearchView from '../views/ResearchView.vue'
+import PublicationsView from '../views/PublicationsView.vue'
+import ContactView from '../views/ContactView.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -10,17 +14,22 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/research',
     name: 'research',
-    component: () => import('../views/ResearchView.vue')
+    component: ResearchView
   },
   {
     path: '/publications',
     name: 'publications',
-    component: () => import('../views/PublicationsView.vue')
+    component: PublicationsView
   },
   {
     path: '/contact',
     name: 'contact',
-    component: () => import('../views/ContactView.vue')
+    component: ContactView
+  },
+  // Add a catch-all route to redirect to home
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/'
   }
 ]
 

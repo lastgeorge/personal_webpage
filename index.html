@@ -1,11 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Dr. Xin Qian - Physicist at Brookhaven National Laboratory and Associate Adjunct Professor at Stony Brook University">
     <title>Dr. Xin Qian</title>
+    <!-- Initial theme setup script -->
+    <script>
+      (function() {
+        // Check if a theme is stored in localStorage
+        const savedTheme = localStorage.getItem('theme');
+        
+        // If explicitly set to light, remove dark class
+        if (savedTheme === 'light') {
+          document.documentElement.classList.remove('dark');
+        } 
+        // If no preference stored, check system preference
+        else if (!savedTheme) {
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (!prefersDark) {
+            document.documentElement.classList.remove('dark');
+          }
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="app"></div>

@@ -13,8 +13,10 @@
   "license": "ISC",
   "description": "Personal website of Dr. Xin Qian",
   "dependencies": {
+    "@mdi/font": "^7.4.47",
     "@types/node": "^22.13.5",
     "@vitejs/plugin-vue": "^5.2.1",
+    "@vueuse/motion": "^2.2.6",
     "pinia": "^3.0.1",
     "sass": "^1.85.1",
     "sass-loader": "^16.0.5",

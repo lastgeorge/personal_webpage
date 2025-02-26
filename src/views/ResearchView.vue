@@ -1,35 +1,35 @@
 <template>
   <div class="research">
-    <h1 class="text-3xl font-bold mb-6">Research Projects</h1>
+    <h1 class="text-3xl font-bold mb-6 dark:text-white">Research Projects</h1>
     
     <section class="mb-10">
-      <h2 class="text-2xl font-bold mb-4 border-b pb-2">Major Research Projects</h2>
+      <h2 class="text-2xl font-bold mb-4 border-b pb-2 dark:text-white dark:border-gray-700">Major Research Projects</h2>
       <div class="grid md:grid-cols-2 gap-6">
-        <div v-for="(project, index) in majorProjects" :key="index" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-          <h3 class="text-xl font-semibold mb-2">{{ project.title }}</h3>
-          <p class="mb-4 text-gray-700">{{ project.description }}</p>
+        <div v-for="(project, index) in majorProjects" :key="index" class="bg-white dark:bg-dark-surface p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 dark:shadow-gray-800">
+          <h3 class="text-xl font-semibold mb-2 dark:text-white">{{ project.title }}</h3>
+          <p class="mb-4 text-gray-700 dark:text-gray-300">{{ project.description }}</p>
           <div class="flex space-x-2">
-            <a :href="project.url" class="text-blue-600 hover:underline">Project Website</a>
-            <span v-if="project.docDb" class="text-gray-400">|</span>
-            <a v-if="project.docDb" :href="project.docDb" class="text-blue-600 hover:underline">Documentation</a>
+            <a :href="project.url" class="text-blue-600 dark:text-blue-400 hover:underline">Project Website</a>
+            <span v-if="project.docDb" class="text-gray-400 dark:text-gray-500">|</span>
+            <a v-if="project.docDb" :href="project.docDb" class="text-blue-600 dark:text-blue-400 hover:underline">Documentation</a>
           </div>
         </div>
       </div>
     </section>
     
     <section>
-      <h2 class="text-2xl font-bold mb-4 border-b pb-2">Past Research Projects</h2>
+      <h2 class="text-2xl font-bold mb-4 border-b pb-2 dark:text-white dark:border-gray-700">Past Research Projects</h2>
       <div class="grid md:grid-cols-2 gap-6">
-        <div v-for="(project, index) in pastProjects" :key="index" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-          <h3 class="text-xl font-semibold mb-2">{{ project.title }}</h3>
-          <p class="mb-4 text-gray-700">{{ project.description }}</p>
+        <div v-for="(project, index) in pastProjects" :key="index" class="bg-white dark:bg-dark-surface p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 dark:shadow-gray-800">
+          <h3 class="text-xl font-semibold mb-2 dark:text-white">{{ project.title }}</h3>
+          <p class="mb-4 text-gray-700 dark:text-gray-300">{{ project.description }}</p>
           <div class="flex space-x-2 flex-wrap">
-            <a :href="project.url" class="text-blue-600 hover:underline">Project Website</a>
-            <span v-if="project.additionalLinks && project.additionalLinks.length" class="text-gray-400">|</span>
+            <a :href="project.url" class="text-blue-600 dark:text-blue-400 hover:underline">Project Website</a>
+            <span v-if="project.additionalLinks && project.additionalLinks.length" class="text-gray-400 dark:text-gray-500">|</span>
             <template v-if="project.additionalLinks && project.additionalLinks.length">
               <div v-for="(link, linkIndex) in project.additionalLinks" :key="linkIndex" class="flex items-center">
-                <a :href="link.url" class="text-blue-600 hover:underline">{{ link.title }}</a>
-                <span v-if="linkIndex < project.additionalLinks.length - 1" class="text-gray-400 mx-1">|</span>
+                <a :href="link.url" class="text-blue-600 dark:text-blue-400 hover:underline">{{ link.title }}</a>
+                <span v-if="linkIndex < project.additionalLinks.length - 1" class="text-gray-400 dark:text-gray-500 mx-1">|</span>
               </div>
             </template>
           </div>

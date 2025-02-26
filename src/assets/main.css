@@ -4,6 +4,11 @@
 
 /* Custom styles can go here */
 body {
-  @apply bg-white text-gray-900;
+  @apply bg-white dark:bg-dark-bg text-gray-900 dark:text-dark-text transition-colors duration-200;
   font-family: 'Arial', sans-serif;
+}
+
+/* Dark mode transitions */
+.dark-mode-transition {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
