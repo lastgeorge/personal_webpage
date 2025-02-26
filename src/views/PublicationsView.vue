@@ -474,12 +474,27 @@ export default defineComponent({
 
     const dayaBayPublications = ref([
       {
+      title: 'Observation of electron-antineutrino disappearance at Daya Bay',
+      authors: 'F. P. An et al (Daya Bay Collaboration)',
+      arxiv: 'https://arxiv.org/abs/1203.1669',
+      journal: 'https://doi.org/10.1103/PhysRevLett.108.171803',
+      journalRef: 'Phys. Rev. Lett. 108, 171803 (2012)',
+      year: '2012'
+      },
+      {
       title: 'New Measurement of Antineutrino Oscillation with the Full Detector Configuration at Daya Bay',
       authors: 'Daya Bay Collaboration',
       arxiv: 'https://arxiv.org/abs/1505.03456',
       journal: 'https://doi.org/10.1103/PhysRevLett.115.111802',
       journalRef: 'Phys. Rev. Lett. 115, 111802 (2015)',
       year: '2015'
+      },
+      {
+      title: 'First Search for a Sterile Neutrino at Daya Bay',
+      authors: 'Daya Bay Collaboration',
+      arxiv: 'https://arxiv.org/abs/1407.7259',
+      journal: 'https://doi.org/10.1103/PhysRevLett.113.141802',
+      year: '2014'
       },
       {
       title: 'Measurement of the Reactor Antineutrino Flux and Spectrum at Daya Bay',
@@ -496,18 +511,20 @@ export default defineComponent({
       year: '2017'
       },
       {
-        title: 'Improved Measurement of the Reactor Antineutrino Flux and Spectrum at Daya Bay',
+        title: 'Improved Search for a Light Sterile Neutrino with the Full Configuration of the Daya Bay Experiment',
         authors: 'Daya Bay Collaboration',
-        arxiv: 'https://arxiv.org/abs/1607.05378',
-        journal: 'https://doi.org/10.1088/0009-9260/112/4/043006',
-        year: '2017'
+        arxiv: 'https://arxiv.org/abs/1607.01174',
+        journal: 'https://doi.org/10.1103/PhysRevLett.117.151802',
+        journalRef: 'Phys. Rev. Lett. 117, 151802 (2016)',
+        year: '2016'
       },
       {
-        title: 'First Search for a Sterile Neutrino at Daya Bay',
-        authors: 'Daya Bay Collaboration',
-        arxiv: 'https://arxiv.org/abs/1407.7259',
-        journal: 'https://doi.org/10.1103/PhysRevLett.113.141802',
-        year: '2014'
+        title: 'Limits on Active to Sterile Neutrino Oscillations from Disappearance Searches in the MINOS, Daya Bay, and Bugey-3 Experiments',
+        authors: 'Daya Bay and MINOS Collaborations',
+        arxiv: 'https://arxiv.org/abs/1607.01177',
+        journal: 'https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.117.151801',
+        journalRef: 'Phys. Rev. Lett. 117, 151801 (2016)',
+        year: '2016'
       }
     ]);
 
@@ -546,12 +563,20 @@ export default defineComponent({
 
     const electronScatteringPublications = ref([
       {
-        title: 'Single/Double-Spin Asymmetry Measurements of Semi-inclusive Pion Electroproduction off a Transversely Polarized 3He Target through Deep Inelastic Scattering',
-        authors: 'Xin Qian et al., J. Huang et al.',
-        arxiv: null,
+        title: 'Single Spin Asymmetries in Charged Pion Production from Semi-Inclusive Deep Inelastic Scattering on a Transversely Polarized 3He Target',
+        authors: 'X. Qian et al.',
+        arxiv: 'https://arxiv.org/abs/1106.0363',
         journal: 'https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.107.072003',
-        journalRef: 'PRL 107, 072003 (2011), PRL 108, 052001 (2012)',
-        year: '2011-2012'
+        journalRef: 'PRL 107, 072003 (2011)',
+        year: '2011'
+      },
+      {
+        title: 'Beam-Target Double-Spin Asymmetry 𝐴LT in Charged Pion Production from Deep Inelastic Scattering on a Transversely Polarized 3He Target at 1.4 <𝑄2 <2.7 GeV2',
+        authors: 'J. Huang et al.',
+        arxiv: 'https://arxiv.org/abs/1108.0489',
+        journal: 'https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.108.052001',
+        journalRef: 'PRL 108, 052001 (2012)',
+        year: '2012'
       },
       {
         title: 'Measurement of nuclear transparency for the A(e, e\') reaction',
