@@ -386,6 +386,16 @@ import { defineComponent, ref, computed, onMounted } from 'vue'
 // Import the publications JSON (this works in Vite-based Vue projects)
 import publicationsJSON from '../assets/publications.json'
 
+// Define publication type
+interface Publication {
+  title: string;
+  authors: string;
+  arxiv: string;
+  journal: string | null;
+  journalRef?: string;
+  year: string;
+}
+
 export default defineComponent({
   name: 'PublicationsView',
   setup() {
@@ -398,14 +408,14 @@ export default defineComponent({
     const loadError = ref('')
     const showDebug = ref(false) // Set to true only if you need to debug
     
-    // Initialize empty arrays for publication categories
-    const reviewPublications = ref([]);
-    const statisticsPublications = ref([]);
-    const microboonePublications = ref([]);
-    const detectorPublications = ref([]);
-    const dayaBayPublications = ref([]);
-    const electronScatteringPublications = ref([]);
-    const ideasPublications = ref([]);
+    // Initialize with proper types
+    const reviewPublications = ref<Publication[]>([]);
+    const statisticsPublications = ref<Publication[]>([]);
+    const microboonePublications = ref<Publication[]>([]);
+    const detectorPublications = ref<Publication[]>([]);
+    const dayaBayPublications = ref<Publication[]>([]);
+    const electronScatteringPublications = ref<Publication[]>([]);
+    const ideasPublications = ref<Publication[]>([]);
 
     // Load data from JSON file
     onMounted(() => {
@@ -437,7 +447,7 @@ export default defineComponent({
       }
     });
 
-    const filterPublications = (publications: any[]) => {
+    const filterPublications = (publications: Publication[]) => {
       const query = searchQuery.value.toLowerCase()
       if (!query) return publications
       return publications.filter(pub => 
@@ -499,7 +509,8 @@ export default defineComponent({
         }
       } catch (error) {
         console.error('Error fetching citation:', error);
-        citationError.value = `Error fetching citation: ${error.message}`;
+        const errorMessage = error instanceof Error ? error.message : String(error);
+        citationError.value = `Error fetching citation: ${errorMessage}`;
       } finally {
         loadingCitation.value = false;
       }

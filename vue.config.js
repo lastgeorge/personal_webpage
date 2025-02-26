@@ -7,7 +7,7 @@ module.exports = {
       .loader('json-loader')
       .end();
   },
-  publicPath: '/',
+  publicPath: '/xqian/',
   devServer: {
     historyApiFallback: true
   }

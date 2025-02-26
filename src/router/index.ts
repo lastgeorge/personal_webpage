@@ -34,7 +34,7 @@ const routes: Array<RouteRecordRaw> = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory('/xqian/'),
   routes,
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
