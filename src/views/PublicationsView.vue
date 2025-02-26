@@ -2,10 +2,20 @@
   <div class="publications">
     <h1 class="text-3xl font-bold mb-6">Selected Publications</h1>
     
-    <section class="mb-12">
+    <!-- Add search bar -->
+    <div class="mb-8">
+      <input 
+        type="text" 
+        v-model="searchQuery" 
+        placeholder="Search publications..."
+        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+      >
+    </div>
+
+    <section v-if="filteredReviewPublications.length > 0" class="mb-12">
       <h2 class="text-2xl font-bold mb-4 border-b pb-2">Reviews</h2>
       <div class="grid md:grid-cols-2 gap-6">
-        <div v-for="(publication, index) in reviewPublications" :key="index" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+        <div v-for="(publication, index) in filteredReviewPublications" :key="index" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
           <h3 class="text-lg font-semibold">{{ publication.title }}</h3>
           <p class="text-gray-700 mt-2 italic">{{ publication.authors }}</p>
           <p v-if="publication.journalRef" class="text-gray-600 mt-2 text-sm font-medium">{{ publication.journalRef }}</p>
@@ -33,10 +43,10 @@
       </div>
     </section>
     
-    <section class="mb-12">
+    <section v-if="filteredStatisticsPublications.length > 0" class="mb-12">
       <h2 class="text-2xl font-bold mb-4 border-b pb-2">Statistics/Methods</h2>
       <div class="grid md:grid-cols-2 gap-6">
-        <div v-for="(publication, index) in statisticsPublications" :key="index" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+        <div v-for="(publication, index) in filteredStatisticsPublications" :key="index" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
           <h3 class="text-lg font-semibold">{{ publication.title }}</h3>
           <p class="text-gray-700 mt-2 italic">{{ publication.authors }}</p>
           <p v-if="publication.journalRef" class="text-gray-600 mt-2 text-sm font-medium">{{ publication.journalRef }}</p>
@@ -64,10 +74,10 @@
       </div>
     </section>
     
-    <section class="mb-12">
+    <section v-if="filteredMicroboonePublications.length > 0" class="mb-12">
       <h2 class="text-2xl font-bold mb-4 border-b pb-2">MicroBooNE Experiment</h2>
       <div class="grid md:grid-cols-2 gap-6">
-        <div v-for="(publication, index) in microboonePublications" :key="index" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+        <div v-for="(publication, index) in filteredMicroboonePublications" :key="index" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
           <h3 class="text-lg font-semibold">{{ publication.title }}</h3>
           <p class="text-gray-700 mt-2 italic">{{ publication.authors }}</p>
           <p v-if="publication.journalRef" class="text-gray-600 mt-2 text-sm font-medium">{{ publication.journalRef }}</p>
@@ -95,10 +105,10 @@
       </div>
     </section>
     
-    <section class="mb-12">
+    <section v-if="filteredDetectorPublications.length > 0" class="mb-12">
       <h2 class="text-2xl font-bold mb-4 border-b pb-2">Detector Physics and Event Reconstruction in LArTPC</h2>
       <div class="grid md:grid-cols-2 gap-6">
-        <div v-for="(publication, index) in detectorPublications" :key="index" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+        <div v-for="(publication, index) in filteredDetectorPublications" :key="index" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
           <h3 class="text-lg font-semibold">{{ publication.title }}</h3>
           <p class="text-gray-700 mt-2 italic">{{ publication.authors }}</p>
           <p v-if="publication.journalRef" class="text-gray-600 mt-2 text-sm font-medium">{{ publication.journalRef }}</p>
@@ -126,10 +136,10 @@
       </div>
     </section>
     
-    <section class="mb-12">
+    <section v-if="filteredDayaBayPublications.length > 0" class="mb-12">
       <h2 class="text-2xl font-bold mb-4 border-b pb-2">Daya Bay Experiment</h2>
       <div class="grid md:grid-cols-2 gap-6">
-        <div v-for="(publication, index) in dayaBayPublications" :key="index" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+        <div v-for="(publication, index) in filteredDayaBayPublications" :key="index" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
           <h3 class="text-lg font-semibold">{{ publication.title }}</h3>
           <p class="text-gray-700 mt-2 italic">{{ publication.authors }}</p>
           <p v-if="publication.journalRef" class="text-gray-600 mt-2 text-sm font-medium">{{ publication.journalRef }}</p>
@@ -157,10 +167,10 @@
       </div>
     </section>
 
-    <section class="mb-12">
+    <section v-if="filteredElectronScatteringPublications.length > 0" class="mb-12">
       <h2 class="text-2xl font-bold mb-4 border-b pb-2">Electron Scattering Experiment</h2>
       <div class="grid md:grid-cols-2 gap-6">
-        <div v-for="(publication, index) in electronScatteringPublications" :key="index" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+        <div v-for="(publication, index) in filteredElectronScatteringPublications" :key="index" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
           <h3 class="text-lg font-semibold">{{ publication.title }}</h3>
           <p class="text-gray-700 mt-2 italic">{{ publication.authors }}</p>
           <p v-if="publication.journalRef" class="text-gray-600 mt-2 text-sm font-medium">{{ publication.journalRef }}</p>
@@ -188,10 +198,10 @@
       </div>
     </section>
 
-    <section class="mb-12">
+    <section v-if="filteredIdeasPublications.length > 0" class="mb-12">
       <h2 class="text-2xl font-bold mb-4 border-b pb-2">Idea and Pheno Work</h2>
       <div class="grid md:grid-cols-2 gap-6">
-        <div v-for="(publication, index) in ideasPublications" :key="index" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+        <div v-for="(publication, index) in filteredIdeasPublications" :key="index" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
           <h3 class="text-lg font-semibold">{{ publication.title }}</h3>
           <p class="text-gray-700 mt-2 italic">{{ publication.authors }}</p>
           <p v-if="publication.journalRef" class="text-gray-600 mt-2 text-sm font-medium">{{ publication.journalRef }}</p>
@@ -219,6 +229,10 @@
       </div>
     </section>
     
+    <div v-if="noResults" class="text-center py-8 text-gray-500">
+      No publications found matching your search.
+    </div>
+
     <div class="text-center my-8">
       <a href="http://inspirehep.net/author/profile/Xin.Qian.1" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
         View All Publications on INSPIRE
@@ -228,11 +242,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, computed } from 'vue'
 
 export default defineComponent({
   name: 'PublicationsView',
   setup() {
+    const searchQuery = ref('')
+    
     const reviewPublications = ref([
       {
         title: 'Reactor Antineutrino Flux and Anomaly',
@@ -627,15 +643,54 @@ export default defineComponent({
         year: '2011'
       }
     ]);
-    
+
+    const filterPublications = (publications: any[]) => {
+      const query = searchQuery.value.toLowerCase()
+      if (!query) return publications
+      
+      return publications.filter(pub => 
+        pub.title.toLowerCase().includes(query) ||
+        pub.authors.toLowerCase().includes(query) ||
+        (pub.journalRef && pub.journalRef.toLowerCase().includes(query)) ||
+        (pub.year && pub.year.toString().includes(query))
+      )
+    }
+
+    const filteredReviewPublications = computed(() => filterPublications(reviewPublications.value))
+    const filteredStatisticsPublications = computed(() => filterPublications(statisticsPublications.value))
+    const filteredMicroboonePublications = computed(() => filterPublications(microboonePublications.value))
+    const filteredDetectorPublications = computed(() => filterPublications(detectorPublications.value))
+    const filteredDayaBayPublications = computed(() => filterPublications(dayaBayPublications.value))
+    const filteredElectronScatteringPublications = computed(() => filterPublications(electronScatteringPublications.value))
+    const filteredIdeasPublications = computed(() => filterPublications(ideasPublications.value))
+
+    const noResults = computed(() => {
+      return !filteredReviewPublications.value.length &&
+             !filteredStatisticsPublications.value.length &&
+             !filteredMicroboonePublications.value.length &&
+             !filteredDetectorPublications.value.length &&
+             !filteredDayaBayPublications.value.length &&
+             !filteredElectronScatteringPublications.value.length &&
+             !filteredIdeasPublications.value.length
+    })
+
     return {
+      searchQuery,
       reviewPublications,
       statisticsPublications,
       microboonePublications,
       detectorPublications,
       dayaBayPublications,
       electronScatteringPublications,
-      ideasPublications
+      ideasPublications,
+      filteredReviewPublications,
+      filteredStatisticsPublications,
+      filteredMicroboonePublications,
+      filteredDetectorPublications,
+      filteredDayaBayPublications,
+      filteredElectronScatteringPublications,
+      filteredIdeasPublications,
+      noResults
     }
   }
 })
