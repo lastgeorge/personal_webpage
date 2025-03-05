@@ -92,6 +92,20 @@
   ],
   "microboonePublications": [
     {
+      "title":"Enhanced Search for Neutral Current Δ Radiative Single-Photon Production in MicroBooNE",
+      "authors":"MicroBooNE Collaboration",
+      "arxiv":"http://arxiv.org/abs/2404.05750",
+      "journal":null,
+      "year":"2025" 
+    },
+    {
+      "title": "Inclusive Search for Anomalous Single-Photon Production in MicroBooNE",
+      "authors": "MicroBooNE Collaboration",
+      "arxiv": "http://arxiv.org/abs/2404.06064",
+      "journal": null,
+      "year": "2025"
+    },
+    {
       "title": "First double differential cross section of neutral-current pi0 production in neutrino-argon scattering in the MicroBooNE detector",
       "authors": "MicroBooNE Collaboration",
       "arxiv": "http://arxiv.org/abs/2404.10948",
