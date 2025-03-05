@@ -13,6 +13,7 @@
       <p>Data loaded: {{ dataLoaded ? 'Yes' : 'No' }}</p>
       <p>Review publications count: {{ reviewPublications.length }}</p>
       <p>Stats publications count: {{ statisticsPublications.length }}</p>
+      <p>DUNE publications count: {{ dunePublications.length }}</p>
     </div>
     
     <!-- Add search bar -->
@@ -113,6 +114,49 @@
       </div>
     </section>
     
+    <section v-if="filteredDunePublications.length > 0" class="mb-12">
+      <h2 class="text-2xl font-bold mb-4 border-b pb-2 dark:text-white dark:border-gray-700">DUNE Experiment</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div v-for="(publication, index) in filteredDunePublications" :key="index" class="bg-white dark:bg-dark-surface p-6 rounded-lg shadow hover:shadow-lg transition dark:shadow-gray-800">
+          <h3 class="text-lg font-semibold dark:text-white">{{ publication.title }}</h3>
+          <p class="text-gray-700 dark:text-gray-300 mt-2 italic">{{ publication.authors }}</p>
+          <p v-if="publication.journalRef" class="text-gray-600 dark:text-gray-400 mt-2 text-sm font-medium">{{ publication.journalRef }}</p>
+          <div class="mt-3 flex flex-wrap gap-4">
+            <a v-if="publication.arxiv" :href="publication.arxiv" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+              arXiv
+            </a>
+            <a v-if="publication.journal" :href="publication.journal" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+              </svg>
+              Journal
+            </a>
+            <a v-if="publication.arxiv" :href="getInspireLink(publication.arxiv)" class="text-purple-600 dark:text-purple-400 hover:underline flex items-center" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Inspire
+            </a>
+            <button v-if="publication.arxiv" @click="showCitation(publication.arxiv)" class="text-green-600 dark:text-green-400 hover:underline flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+              </svg>
+              Cite
+            </button>
+            <span v-if="publication.year" class="text-gray-500 dark:text-gray-400 flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              {{ publication.year }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Additional sections for other publication categories follow the same structure -->
     <section v-if="filteredMicroboonePublications.length > 0" class="mb-12">
       <h2 class="text-2xl font-bold mb-4 border-b pb-2 dark:text-white dark:border-gray-700">MicroBooNE Experiment</h2>
@@ -340,6 +384,8 @@
       </div>
     </section>
     
+   
+    
     <div v-if="noResults" class="text-center py-8 text-gray-500 dark:text-gray-400">
       No publications found matching your search.
     </div>
@@ -416,6 +462,7 @@ export default defineComponent({
     const dayaBayPublications = ref<Publication[]>([]);
     const electronScatteringPublications = ref<Publication[]>([]);
     const ideasPublications = ref<Publication[]>([]);
+    const dunePublications = ref<Publication[]>([]); // Add DUNE publications
 
     // Load data from JSON file
     onMounted(() => {
@@ -428,6 +475,7 @@ export default defineComponent({
         dayaBayPublications.value = publicationsJSON.dayaBayPublications || [];
         electronScatteringPublications.value = publicationsJSON.electronScatteringPublications || [];
         ideasPublications.value = publicationsJSON.ideasPublications || [];
+        dunePublications.value = publicationsJSON.dunePublications || []; // Load DUNE publications
         
         dataLoaded.value = true;
         
@@ -439,7 +487,8 @@ export default defineComponent({
           detector: detectorPublications.value.length,
           dayaBay: dayaBayPublications.value.length,
           electronScattering: electronScatteringPublications.value.length,
-          ideas: ideasPublications.value.length
+          ideas: ideasPublications.value.length,
+          dune: dunePublications.value.length // Log DUNE publications count
         });
       } catch (error) {
         console.error("Error loading publications data:", error);
@@ -465,6 +514,7 @@ export default defineComponent({
     const filteredDayaBayPublications = computed(() => filterPublications(dayaBayPublications.value))
     const filteredElectronScatteringPublications = computed(() => filterPublications(electronScatteringPublications.value))
     const filteredIdeasPublications = computed(() => filterPublications(ideasPublications.value))
+    const filteredDunePublications = computed(() => filterPublications(dunePublications.value)) // Add filtered DUNE publications
 
     const noResults = computed(() => {
       return !filteredReviewPublications.value.length &&
@@ -473,7 +523,8 @@ export default defineComponent({
              !filteredDetectorPublications.value.length &&
              !filteredDayaBayPublications.value.length &&
              !filteredElectronScatteringPublications.value.length &&
-             !filteredIdeasPublications.value.length
+             !filteredIdeasPublications.value.length &&
+             !filteredDunePublications.value.length // Add DUNE to no results check
     })
 
     // Get InspireHEP link from arXiv URL
@@ -537,6 +588,7 @@ export default defineComponent({
       dayaBayPublications,
       electronScatteringPublications,
       ideasPublications,
+      dunePublications, // Add to return
       filteredReviewPublications,
       filteredStatisticsPublications,
       filteredMicroboonePublications,
@@ -544,6 +596,7 @@ export default defineComponent({
       filteredDayaBayPublications,
       filteredElectronScatteringPublications,
       filteredIdeasPublications,
+      filteredDunePublications, // Add to return
       noResults,
       getInspireLink,
       showCitation,
