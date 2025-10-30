@@ -529,10 +529,21 @@ export default defineComponent({
 
     // Get InspireHEP link from arXiv URL
     const getInspireLink = (arxivUrl: string) => {
-      const arxivMatch = arxivUrl.match(/(\d+\.\d+|[a-z]+\/\d+)/);
-      if (arxivMatch) {
-        return `https://inspirehep.net/literature?q=eprint:${arxivMatch[0]}`;
+      // Extract arXiv ID from the URL
+      // Handle both new-style (2404.10948) and old-style (hep-ex/0307001) arXiv IDs
+      const arxivMatch = arxivUrl.match(/arxiv\.org\/abs\/([a-zA-Z-]*\/?\d+\.\d+|\d+\.\d+|[a-zA-Z-]+\/\d+)/i);
+      
+      if (arxivMatch && arxivMatch[1]) {
+        return `https://inspirehep.net/literature?q=eprint:${arxivMatch[1]}`;
       }
+      
+      // Try direct extraction if the URL pattern is different
+      const directMatch = arxivUrl.match(/(\d+\.\d+|[a-zA-Z-]+\/\d+)$/);
+      if (directMatch) {
+        return `https://inspirehep.net/literature?q=eprint:${directMatch[0]}`;
+      }
+      
+      // If no match found, return the original URL as fallback
       return arxivUrl;
     };
 

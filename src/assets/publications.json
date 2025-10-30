@@ -3,7 +3,7 @@
     {
       "title": "Reactor Antineutrino Flux and Anomaly",
       "authors": "C. Zhang, X. Qian, and M. Fallot",
-      "arxiv": "http://arxiv.org/abs/arXiv:2310.13070",
+      "arxiv": "http://arxiv.org/abs/2310.13070",
       "journal": "https://www.sciencedirect.com/science/article/pii/S0146641024000103?dgcid=coauthor",
       "journalRef": "Prog. Part. Nucl. Phys. 140, 104062 (2024)",
       "year": "2024"
@@ -11,7 +11,7 @@
     {
       "title": "Physics with Reactor Neutrinos",
       "authors": "X. Qian and Jen-Chieh Peng",
-      "arxiv": "http://arxiv.org/abs/arXiv:1801.05386",
+      "arxiv": "http://arxiv.org/abs/1801.05386",
       "journal": "http://iopscience.iop.org/article/10.1088/1361-6633/aae881",
       "journalRef": "Rep. Prog. Phys. 82, 036201 (2019)",
       "year": "2019"
@@ -19,7 +19,7 @@
     {
       "title": "Long-Baseline Neutrino Experiments",
       "authors": "M. V. Diwan, V. Galymov, X. Qian, and A. Rubbia",
-      "arxiv": "http://arxiv.org/abs/arXiv:1608.06237",
+      "arxiv": "http://arxiv.org/abs/1608.06237",
       "journal": "http://www.annualreviews.org/eprint/yCFIKtQWquy4t4dRAyyh/full/10.1146/annurev-nucl-102014-021939",
       "journalRef": "Annu. Rev. Nucl. Part. Sci. 66, 47 (2016)",
       "year": "2016"
@@ -35,10 +35,18 @@
   ],
   "statisticsPublications": [
     {
+      "title": "Improving Neutrino-Nuclei Interaction Models: Recommendations and Case Studies on Peelle's Pertinent Puzzle",
+      "authors": "L. Cooper-Troendle et al.",
+      "arxiv": "https://arxiv.org/abs/2509.17945",
+      "journal": null,
+      "year": "2025"
+    },
+    {
       "title": "Data-driven model validation for neutrino-nucleus cross section measurements",
       "authors": "MicroBooNE collaboration",
       "arxiv": "https://arxiv.org/abs/2411.03280",
-      "journal": null,
+      "journal": "https://journals.aps.org/prd/abstract/10.1103/PhysRevD.111.092010",
+      "journalRef": "Phys. Rev. D111, 092010 (2025)",
       "year": "2024"
     },
     {
@@ -104,14 +112,14 @@
     {
       "title":"Enhanced Search for Neutral Current Δ Radiative Single-Photon Production in MicroBooNE",
       "authors":"MicroBooNE Collaboration",
-      "arxiv":"http://arxiv.org/abs/2404.05750",
+      "arxiv":"http://arxiv.org/abs/2502.05750",
       "journal":null,
       "year":"2025" 
     },
     {
       "title": "Inclusive Search for Anomalous Single-Photon Production in MicroBooNE",
       "authors": "MicroBooNE Collaboration",
-      "arxiv": "http://arxiv.org/abs/2404.06064",
+      "arxiv": "http://arxiv.org/abs/2502.06064",
       "journal": null,
       "year": "2025"
     },
@@ -119,7 +127,8 @@
       "title": "First double differential cross section of neutral-current pi0 production in neutrino-argon scattering in the MicroBooNE detector",
       "authors": "MicroBooNE Collaboration",
       "arxiv": "http://arxiv.org/abs/2404.10948",
-      "journal": null,
+      "journal": "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.134.161802",
+      "journalRef": "Phys. Rev. Lett. 134, 161802 (2025)",
       "year": "2024"
     },
     {
@@ -186,6 +195,14 @@
       "journal": "https://doi.org/10.1088/1748-0221/13/05/P05032",
       "journalRef": "JINST 13, P05032 (2018)",
       "year": "2018"
+    },
+    {
+      "title": "Improving neutrino energy estimation of charged-current interaction events with recurrent neural networks in MicroBooNE",
+      "authors": "MicroBooNE collaboration",
+      "arxiv": "https://arxiv.org/abs/2406.10123",
+      "journal": "https://journals.aps.org/prd/abstract/10.1103/PhysRevD.110.092010",
+      "journalRef": "Phys. Rev. D110, 092010 (2024)",
+      "year": "2024"
     },
     {
       "title": "A hybrid 3D/2D field response calculation for liquid argon detectors with PCB based anode plane",
