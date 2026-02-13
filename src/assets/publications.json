@@ -38,7 +38,8 @@
       "title": "Improving Neutrino-Nuclei Interaction Models: Recommendations and Case Studies on Peelle's Pertinent Puzzle",
       "authors": "L. Cooper-Troendle et al.",
       "arxiv": "https://arxiv.org/abs/2509.17945",
-      "journal": null,
+      "journal": "https://journals.aps.org/prd/abstract/10.1103/615w-kjk2",
+      "journalRef": "Phys. Rev. D113, 012001 (2026)",
       "year": "2025"
     },
     {
@@ -110,10 +111,19 @@
   ],
   "microboonePublications": [
     {
+      "title":"Search for light sterile neutrinos with two neutrino beams at MicroBooNE",
+      "authors":"MicroBooNE Collaboration",
+      "arxiv":"http://arxiv.org/abs/0000.00000",
+      "journal":"https://www.nature.com/articles/s41586-025-09757-7",
+      "journalRef":"Nature volume 648, 64 (2025)",
+      "year":"2025"
+    },
+    {
       "title":"Enhanced Search for Neutral Current Δ Radiative Single-Photon Production in MicroBooNE",
       "authors":"MicroBooNE Collaboration",
       "arxiv":"http://arxiv.org/abs/2502.05750",
-      "journal":null,
+      "journal": "https://journals.aps.org/prd/abstract/10.1103/49ds-5hfh",
+      "journalRef": "Phys. Rev. D 112, L091101 (2025)",
       "year":"2025" 
     },
     {
@@ -151,7 +161,8 @@
       "title": "Measurement of triple-differential inclusive muon-neutrino charged-current cross section on argon with the MicroBooNE detector",
       "authors": "MicroBooNE Collaboration",
       "arxiv": "http://arxiv.org/abs/2307.06413",
-      "journal": null,
+      "journal": "https://www.sciencedirect.com/science/article/pii/S0370269325006975?via%3Dihub",
+      "journalRef": "Phys.Lett.B 870 (2025) 139939",
       "year": "2023"
     },
     {
@@ -273,6 +284,13 @@
       "journal": "https://iopscience.iop.org/article/10.1088/1748-0221/12/08/P08003",
       "journalRef": "JINST 12, P08003 (2017)",
       "year": "2017"
+    },
+    {
+      "title": "GPU-Accelerated Analytic Simulation of Sparse Signals in Pixelated Time Projection Detector",
+      "authors": "Y. Zhang et al.",
+      "arxiv": "https://arxiv.org/abs/2602.12052",
+      "journal": null,
+      "year": "2026"
     }
   ],
   "dayaBayPublications": [
