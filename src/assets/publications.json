@@ -107,6 +107,14 @@
       "journal":"https://iopscience.iop.org/article/10.1088/1748-0221/15/12/P12004",
       "journalRef": "JINST 15, P12004 (2020)",
       "year":"2020"
+    },
+    {
+      "title":"GPU-Accelerated Analytic Simulation of Sparse Signals in Pixelated Time Projection Detector",
+      "authors":"Y. Zhang et al.",
+      "arxiv":"http://arxiv.org/abs/2602.12052",
+      "journal":"",
+      "journalRef":"",
+      "year":"2026"   
     }
   ],
   "microboonePublications": [
