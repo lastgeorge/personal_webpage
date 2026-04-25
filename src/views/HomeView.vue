@@ -9,6 +9,7 @@
             <h2 class="text-xl font-semibold dark:text-white">Position:</h2>
             <p><a href="https://www.bnl.gov/staff/xqian" class="text-blue-600 dark:text-blue-400 hover:underline">Senior Physicist</a></p>
             <p class="mt-1">
+              Deputy Group Leader,
               <a href="http://www.phy.bnl.gov/edg/w/Electronic_Detector_Group" class="text-blue-600 dark:text-blue-400 hover:underline">Electronic Detector Group</a>,
               <a href="https://www.bnl.gov/physics/" class="text-blue-600 dark:text-blue-400 hover:underline">Physics Department</a>,
               <a href="http://www.bnl.gov" class="text-blue-600 dark:text-blue-400 hover:underline">Brookhaven National Laboratory</a>
@@ -38,6 +39,39 @@
             <p class="dark:text-gray-300">Phone: 1-631-344-3828 (o)</p>
             <p class="dark:text-gray-300">Fax: 1-631-344-4741</p>
             <p>E-Mail: <a href="mailto:xqian@bnl.gov" class="text-blue-600 dark:text-blue-400 hover:underline">xqian@bnl.gov</a></p>
+          </div>
+
+          <div>
+            <h2 class="text-xl font-semibold dark:text-white">Profiles:</h2>
+            <div class="flex flex-wrap gap-3 mt-2">
+              <a
+                href="https://orcid.org/0000-0002-7903-7935"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:underline"
+              >
+                <i class="mdi mdi-identifier text-xl"></i>
+                <span>ORCID</span>
+              </a>
+              <a
+                href="https://inspirehep.net/authors/1074728"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:underline"
+              >
+                <i class="mdi mdi-atom text-xl"></i>
+                <span>INSPIRE</span>
+              </a>
+              <a
+                href="https://scholar.google.com/citations?user=gIMnqzoAAAAJ&hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:underline"
+              >
+                <i class="mdi mdi-school text-xl"></i>
+                <span>Google Scholar</span>
+              </a>
+            </div>
           </div>
         </div>
         <div class="md:w-1/3 flex justify-center items-start mt-6 md:mt-0">
@@ -73,6 +107,9 @@
         <li>
           <a href="http://www-microboone.fnal.gov/" class="text-blue-600 dark:text-blue-400 hover:underline">MicroBooNE Experiment</a>
           <a href="http://microboone-docdb.fnal.gov:8080/cgi-bin/DocumentDatabase/" class="text-blue-600 dark:text-blue-400 hover:underline ml-2">doc-db</a>
+        </li>
+        <li>
+          <a href="https://sbn-nd.fnal.gov/" class="text-blue-600 dark:text-blue-400 hover:underline">Short-Baseline Near Detector (SBND) Experiment</a>
         </li>
         <li>
           <a href="http://lar.bnl.gov/properties/" class="text-blue-600 dark:text-blue-400 hover:underline">Fundamental Properties of Liquid Argon</a>

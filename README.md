@@ -29,6 +29,31 @@ npm run preview
 
 The production build outputs to `dist/`. It is a fully static site — no backend required. The base URL is configured as `/xqian/` in `vite.config.js`; change that if deploying to a different path.
 
+### Deploy to BNL web space
+
+```bash
+npm run deploy
+```
+
+The deploy script builds the static site, adds an Apache `.htaccess` fallback for direct refreshes on client-side routes, and syncs `dist/` to:
+
+```bash
+xqian@xqian.phy.bnl.gov:~/public_html/
+```
+
+You can override the defaults if needed:
+
+```bash
+# Build for a different URL base path
+BUILD_BASE=/ npm run deploy
+
+# Deploy to a different remote directory
+DEPLOY_DIR=~/public_html/xqian npm run deploy
+
+# Also delete remote files that are no longer in dist/
+DEPLOY_DELETE=1 npm run deploy
+```
+
 ---
 
 ## Project Structure
@@ -92,14 +117,41 @@ All publication data lives in **`src/assets/publications.json`**. The file is an
       "authors": "Author list string",
       "arxiv": "https://arxiv.org/abs/...",
       "journal": "https://doi.org/...",
-      "journal_ref": "Phys. Rev. Lett. 123, 456 (2024)",
+      "journalRef": "Phys. Rev. Lett. 123, 456 (2024)",
       "year": 2024
     }
   ]
 }
 ```
 
-Fields `arxiv`, `journal`, and `journal_ref` are optional — omit them if not available. The publication list is rendered and filtered entirely from this file; no code changes are needed to add new entries.
+Fields `arxiv`, `journal`, and `journalRef` are optional — omit them if not available. The publication list is rendered and filtered entirely from this file; no code changes are needed to add new entries.
+
+For easier local updates, use the publication helper:
+
+```bash
+# Start a local form-based editor
+npm run pub:editor
+
+# Show available categories
+npm run pub:list
+
+# Add a publication through prompts
+npm run pub:add
+
+# Or add one directly from the command line
+npm run pub:add -- --category dunePublications --title "Paper title" --authors "Author list" --year 2026 --arxiv "https://arxiv.org/abs/2601.00001" --journal "https://..." --journal-ref "Journal ref"
+
+# Check that required fields are present
+npm run pub:validate
+```
+
+This helper only edits the local JSON file. It is not imported by the Vue app and does not create a public editing interface, so the deployed website remains read-only for visitors.
+
+The form-based editor runs at `http://127.0.0.1:4177/` by default. Use **Add Publication** to create a new entry, or click **Edit** next to an existing publication to modify that record. You can change the local port with:
+
+```bash
+PUB_EDITOR_PORT=4188 npm run pub:editor
+```
 
 ### Changing profile content (bio, awards, projects on home page)
 

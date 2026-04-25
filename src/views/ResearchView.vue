@@ -65,6 +65,12 @@ export default defineComponent({
         docDb: 'http://microboone-docdb.fnal.gov:8080/cgi-bin/DocumentDatabase/'
       },
       {
+        title: 'Short-Baseline Near Detector (SBND) Experiment',
+        description: 'A liquid argon time projection chamber near detector in the Fermilab Short-Baseline Neutrino program.',
+        url: 'https://sbn-nd.fnal.gov/',
+        docDb: null
+      },
+      {
         title: 'Fundamental Properties of Liquid Argon',
         description: 'Research into the fundamental physical properties of liquid argon for neutrino detection.',
         url: 'http://lar.bnl.gov/properties/',

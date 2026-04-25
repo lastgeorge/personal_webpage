@@ -5,8 +5,13 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
+    "deploy": "bash scripts/deploy.sh",
     "preview": "vite preview",
-    "type-check": "vue-tsc --noEmit"
+    "type-check": "vue-tsc --noEmit",
+    "pub:add": "node scripts/publication-manager.mjs add",
+    "pub:editor": "node scripts/publication-editor.mjs",
+    "pub:list": "node scripts/publication-manager.mjs list",
+    "pub:validate": "node scripts/publication-manager.mjs validate"
   },
   "keywords": [],
   "author": "Xin Qian",
