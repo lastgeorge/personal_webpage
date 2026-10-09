@@ -91,6 +91,7 @@
         <li><a href="https://www.bnl.gov/newsroom/news.php?a=212308" class="text-blue-600 dark:text-blue-400 hover:underline">2017 EPS Young Experimental Scientist Prize</a></li>
         <li><a href="https://www.bnl.gov/newsroom/news.php?a=221600" class="text-blue-600 dark:text-blue-400 hover:underline">2022 BNL Science and Technology Award</a></li>
         <li><a href="https://www.bnl.gov/newsroom/news.php?a=121411" class="text-blue-600 dark:text-blue-400 hover:underline">2023 The High Energy and Particle Physics Prize (as a member of Daya Bay collaboration), High-Energy Division of EPS</a></li>
+        <li><a href="https://www.bnl.gov/newsroom/news.php?a=123202" class="text-blue-600 dark:text-blue-400 hover:underline">2026 APS Division of Particles and Fields (DPF) Fellow</a></li>
       </ul>
     </section>
     
